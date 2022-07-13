@@ -12,24 +12,25 @@ document.addEventListener('DOMContentLoaded',function(){
             type: 'bar'
         },
         title: {
-            text: 'Food Consumption'
+            text: 'Bookings'
         },
         xAxis: {
-            categories: ['Meat', 'Vegetables', 'Wine']
+            categories: <%= raw @journey_names %>
         },
         yAxis: {
             title: {
-                text: 'Food eaten'
-              },             
+                text: 'Cabins Booked'
+              }, 
+              tickInterval: 1            
           },
         series: [{
-            name: 'test',
-            data: [1, 0, 5]
+            name: 'Cabins Available',
+            data: <%= raw @cabins_available %>
         },
 
         {
-            name: 'TEST2',
-            data: [8, 9, 2]
+            name: 'Journeys',
+            data: <%= raw @journey_names %>
         },]
     });
 });
