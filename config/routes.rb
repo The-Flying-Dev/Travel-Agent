@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :journeys
   resources :cabins
   resources :stations
   resources :trains

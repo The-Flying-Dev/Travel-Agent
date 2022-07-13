@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @journey.name %>
+</p>
+
+<p>
+  <strong>Train:</strong>
+  <%= @journey.train.name %>
+</p>
+
+<%= link_to 'Edit', edit_journey_path(@journey) %> |
+<%= link_to 'Back', journeys_path %>
