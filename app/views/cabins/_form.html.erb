@@ -1,0 +1,41 @@
+<%= form_with(model: cabin) do |form| %>
+  <% if cabin.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(cabin.errors.count, "error") %> prohibited this cabin from being saved:</h2>
+
+      <ul>
+        <% cabin.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :beds %>
+    <%= form.number_field :beds %>
+  </div>
+
+  <div class="field">
+    <%= form.label :section %>
+    <%= form.number_field :section %>
+  </div>
+
+  <div class="field">
+    <%= form.label :train_id, "Train" %>
+    <!--allows choice to association of train-->
+    <%= form.collection_select :train_id, Train.all, :id, :name, prompt: true %>
+    <em><% form.label :train_id %> <br />
+    <%= form.collection_radio_buttons( :train_id, Train.all, :id, :name ) %>
+    <%#= form.text_field :train_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

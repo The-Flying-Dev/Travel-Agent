@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :cabins
   resources :stations
   resources :trains
   root 'booking_agent#index'
