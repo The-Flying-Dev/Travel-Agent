@@ -4,7 +4,7 @@ class JourneysController < ApplicationController
    
   # GET /journeys or /journeys.json
   def index
-    @journeys = Journey.all
+    @journeys = Journey.search(params[:term])      
   end
 
   # GET /journeys/1 or /journeys/1.json
@@ -70,6 +70,6 @@ class JourneysController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def journey_params
-      params.require(:journey).permit(:name, :train_id)
+      params.require(:journey).permit(:name, :train_id, :term)
     end
 end
