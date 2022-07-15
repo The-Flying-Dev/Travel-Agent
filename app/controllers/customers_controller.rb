@@ -26,6 +26,8 @@ class CustomersController < ApplicationController
 
     respond_to do |format|
       if @customer.save
+        #creates new address instance, pointing from the customer model with each customer instance having one address
+        @customer.create_address!
         format.html { redirect_to customer_url(@customer), notice: "Customer was successfully created." }
         format.json { render :show, status: :created, location: @customer }
       else

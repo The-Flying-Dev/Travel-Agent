@@ -43,7 +43,10 @@ class AddressesController < ApplicationController
   def update
     respond_to do |format|
       if @address.update(address_params)
-        format.html { redirect_to address_url(@address), notice: "Address was successfully updated." }
+        #finds customer asscociated withthe address
+        @customer = Customer.find(@address.customer_id)
+        #returns back to customer show page after editing
+        format.html { redirect_to @customer, notice: "Address was successfully updated." }
         format.json { render :show, status: :ok, location: @address }
       else
         format.html { render :edit, status: :unprocessable_entity }

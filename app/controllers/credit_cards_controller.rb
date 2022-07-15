@@ -14,8 +14,10 @@ class CreditCardsController < ApplicationController
   # GET /credit_cards/new
   #pulls in customer object since address references The customers table - foreign key in CreditCard table
   def new
+    #finding customer based on id
+    @customer = Customer.find(params[:customer_id])
     @credit_card = CreditCard.new
-    @customers = Customer.all
+    @credit_card.customer_id = @customer.id
   end
 
   # GET /credit_cards/1/edit
@@ -31,7 +33,8 @@ class CreditCardsController < ApplicationController
 
     respond_to do |format|
       if @credit_card.save
-        format.html { redirect_to credit_card_url(@credit_card), notice: "Credit card was successfully created." }
+        @customer = Customer.find(@credit_card.customer_id)
+        format.html { redirect_to @customer, notice: "Credit card was successfully created." }
         format.json { render :show, status: :created, location: @credit_card }
       else
         format.html { render :new, status: :unprocessable_entity }
