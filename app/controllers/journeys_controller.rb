@@ -1,6 +1,6 @@
 class JourneysController < ApplicationController
   before_action :set_journey, only: %i[ show edit update destroy ]
-  
+  before_action :call_train, only: %i[new edit]
    
   # GET /journeys or /journeys.json
   def index
@@ -15,13 +15,13 @@ class JourneysController < ApplicationController
   #pulls in train object since cabin references The Trains table - foreign key in journey's table
   def new
     @journey = Journey.new
-    @trains = Train.all
+    #@trains = Train.all
   end
 
   # GET /journeys/1/edit
   #pulls in train object since cabin references The Trains table - foreign key in journey's table
   def edit
-    @trains = Train.all
+    #@trains = Train.all
   end
 
   # POST /journeys or /journeys.json
@@ -66,6 +66,10 @@ class JourneysController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_journey
       @journey = Journey.find(params[:id])
+    end
+
+    def call_train
+      @trains = Train.all
     end
 
     # Only allow a list of trusted parameters through.

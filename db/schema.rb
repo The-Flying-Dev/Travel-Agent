@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_13_183817) do
+ActiveRecord::Schema.define(version: 2022_07_15_032335) do
+
+  create_table "addresses", force: :cascade do |t|
+    t.string "street"
+    t.string "city"
+    t.string "postcode"
+    t.integer "customer_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["customer_id"], name: "index_addresses_on_customer_id"
+  end
 
   create_table "cabins", force: :cascade do |t|
     t.string "name"
@@ -20,6 +30,26 @@ ActiveRecord::Schema.define(version: 2022_07_13_183817) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["train_id"], name: "index_cabins_on_train_id"
+  end
+
+  create_table "credit_cards", force: :cascade do |t|
+    t.string "number"
+    t.string "exp_date"
+    t.string "name_on_card"
+    t.string "company"
+    t.integer "customer_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["customer_id"], name: "index_credit_cards_on_customer_id"
+  end
+
+  create_table "customers", force: :cascade do |t|
+    t.string "last_name"
+    t.string "first_name"
+    t.boolean "has_good_credit"
+    t.boolean "paid"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "journeys", force: :cascade do |t|
@@ -46,6 +76,8 @@ ActiveRecord::Schema.define(version: 2022_07_13_183817) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "addresses", "customers"
   add_foreign_key "cabins", "trains"
+  add_foreign_key "credit_cards", "customers"
   add_foreign_key "journeys", "trains"
 end
