@@ -1,0 +1,49 @@
+<h1>New booking for <%= @journey.name %></h1>
+<br />
+
+<%= form_with(model: booking) do |form| %>
+  <% if booking.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
+
+      <ul>
+        <% booking.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :customer_id, "Customer" %>
+    <%= form.collection_select :customer_id, Customer.all, :id, :last_name, prompt: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :journey_id %>
+    <!--hidden field so value is captured but can't be edited when the booking is being made-->
+    <%= form.hidden_field :journey_id, :value => @journey.id %>
+    <%= @journey.name %>
+  </div>
+
+  <h4>Pick a cabin on the</h4><%= @journey.train.name %>
+  <table>
+    <tr>
+      <th>Cabin</th>
+      <th>Section</th>
+      <th>Beds</th>
+    </tr>
+    <% for cabin in @cabins %>
+    <tr>
+      <td><%= cabin.name %></td>
+      <td><%= cabin.beds %></td>
+      <td><%= cabin.section %></td>
+      <td><%= radio_button('cabin', 'cabin_id', "#{cabin.id}") %></td>
+    </tr>
+    <% end %>
+  </table>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

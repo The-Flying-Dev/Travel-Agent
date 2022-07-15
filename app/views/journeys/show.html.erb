@@ -10,5 +10,15 @@
   <%= @journey.train.name %>
 </p>
 
+<!--looping through the bookings for the customers on the journey-->
+<p>
+  <% @journey.bookings.each do |booking| 
+    @customer = Customer.find(booking.customer_id)
+  %>
+  <%= @customer.first_name %><%= @customer.last_name %> booked on <%= booking.created_at %>
+</p>
+  <% end %>
+
+<%= link_to 'Add a Booking', new_booking_path(:journey_id => @journey) %> |
 <%= link_to 'Edit', edit_journey_path(@journey) %> |
 <%= link_to 'Back', journeys_path %>

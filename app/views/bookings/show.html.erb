@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @booking.customer.last_name %>
+</p>
+
+<p>
+  <strong>Journey:</strong>
+  <%= @booking.journey.name %>
+</p>
+
+<h4>The cabins included in this booking</h4><br />
+
+<% @booking.cabins.each do |cabin| %>
+  <p>
+    <%= cabin.name %> with
+    <%= cabin.beds %> beds in the section 
+    <%= cabin.section %> on the
+    <%= Train.find(cabin.train_id).name %>
+  </p>
+<% end %>
+
+<p>
+  <%= link_to 'Make a payment', new_payment_path(:booking_id => @booking) %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_booking_path(@booking) %> |
+<%= link_to 'Back', bookings_path %>

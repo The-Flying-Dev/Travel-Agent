@@ -1,5 +1,6 @@
 class Journey < ApplicationRecord
   belongs_to :train
+  has_many :bookings
   validates :name, presence: true
   validates :train, presence: true
 
