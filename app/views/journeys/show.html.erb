@@ -15,7 +15,7 @@
   <% @journey.bookings.each do |booking| 
     @customer = Customer.find(booking.customer_id)
   %>
-  <%= @customer.first_name %><%= @customer.last_name %> booked on <%= booking.created_at %>
+  <%= @customer.first_name %> <%= @customer.last_name %> booked on <%= booking.created_at %>
 </p>
   <% end %>
 

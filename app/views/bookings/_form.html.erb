@@ -14,7 +14,7 @@
 
   <div class="field">
     <%= form.label :customer_id, "Customer" %>
-    <%= form.collection_select :customer_id, Customer.all, :id, :last_name, prompt: true %>
+    <%= form.collection_select :customer_id, @customers, :id, :last_name, prompt: true %>
   </div>
 
   <div class="field">

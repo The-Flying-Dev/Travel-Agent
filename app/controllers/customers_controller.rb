@@ -1,6 +1,6 @@
 class CustomersController < ApplicationController
   before_action :set_customer, only: %i[ show edit update destroy ]
-  rescue_from ActiveRecord::RecordNotFound,with: :redirect_if_not_found
+  #rescue_from ActiveRecord::RecordNotFound,with: :redirect_if_not_found
 
   # GET /customers or /customers.json
   def index

@@ -25,20 +25,21 @@
   <b>Address:</b>
   <%= "#{@customer.address.street}" %>
   <%= "#{@customer.address.city}" %>
-  <%= "#{@customer.address.postcode}" %>
+  <%= "#{@customer.address.postcode}" %><br />
   <%= link_to 'Edit Address', edit_address_path(@customer.address.id) %>
 </p>
 
 <p>
   <b>Credit Cards</b>
   <p><%= link_to 'Add a Credit Card', new_credit_card_path(:customer_id => @customer) %></p>
-  
+  <hr/>
   <% @customer.credit_cards.each do |cc| %>
-    <%= cc.number %>
-    <%= cc.name_on_card %>
-    <%= cc.company %>
-    <%=cc.exp_date %>
-     <%= link_to 'Edit Credit Card Details', edit_credit_card_path(cc.id) %>
+    Card Number: <%= cc.number %><br />
+    Name on Card: <%= cc.name_on_card %><br />
+    Payment Provider: <%= cc.company %><br />
+    Expiry Date: <%=cc.exp_date %><br /><br />
+     <%= link_to 'Edit Credit Card Details', edit_credit_card_path(cc.id) %><br />
+     <hr/>
   <% end %>  
 </p>
 

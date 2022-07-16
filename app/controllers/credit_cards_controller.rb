@@ -1,6 +1,6 @@
 class CreditCardsController < ApplicationController
   before_action :set_credit_card, only: %i[ show edit update destroy ]
-  rescue_from ActiveRecord::RecordNotFound,with: :redirect_if_not_found
+  #rescue_from ActiveRecord::RecordNotFound,with: :redirect_if_not_found
 
   # GET /credit_cards or /credit_cards.json
   def index
@@ -33,7 +33,9 @@ class CreditCardsController < ApplicationController
 
     respond_to do |format|
       if @credit_card.save
+
         @customer = Customer.find(@credit_card.customer_id)
+        
         format.html { redirect_to @customer, notice: "Credit card was successfully created." }
         format.json { render :show, status: :created, location: @credit_card }
       else
