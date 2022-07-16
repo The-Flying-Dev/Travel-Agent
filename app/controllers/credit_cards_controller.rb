@@ -48,7 +48,7 @@ class CreditCardsController < ApplicationController
     @credit_card.exp_date = params[:exp_date][:year].to_s + "/" + params[:exp_date][:month].to_s
     respond_to do |format|
       if @credit_card.update(credit_card_params)
-        format.html { redirect_to credit_card_url(@credit_card), notice: "Credit card was successfully updated." }
+        format.html { redirect_to @credit_card, notice: "Credit card was successfully updated." }
         format.json { render :show, status: :ok, location: @credit_card }
       else
         format.html { render :edit, status: :unprocessable_entity }

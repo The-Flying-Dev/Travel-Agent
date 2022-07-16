@@ -13,15 +13,16 @@ class BookingsController < ApplicationController
   # GET /bookings/new
   def new
     @booking = Booking.new
-    @journey = Journey.find(params[:journey_id])
-    @customers = Customer.all   
+    @customers = Customer.all 
+    @journey = Journey.find(params[:journey_id])      
     @cabins = Cabin.where(["train_id = ?", @journey.train_id])
   end
 
   # GET /bookings/1/edit
   def edit
     @customers = Customer.all
-    @journey = Journey.all
+    @journey = Journey.find(params[:journey_id]) 
+    @cabins = Cabin.where(["train_id = ?", @journey.train_id])
   end
 
   # POST /bookings or /bookings.json
@@ -36,7 +37,7 @@ class BookingsController < ApplicationController
         cabin = Cabin.find(cabin_id)
         logger.info "cabin: #{cabin.id}"
 
-        @bookings.cabins << cabin 
+        @booking.cabins << cabin 
         @booking.save
         format.html { redirect_to @booking, notice: "Booking was successfully created." }
         format.json { render :show, status: :created, location: @booking }
@@ -51,7 +52,7 @@ class BookingsController < ApplicationController
   def update
     respond_to do |format|
       if @booking.update(booking_params)
-        format.html { redirect_to booking_url(@booking), notice: "Booking was successfully updated." }
+        format.html { redirect_to @booking, notice: "Booking was successfully updated." }
         format.json { render :show, status: :ok, location: @booking }
       else
         format.html { render :edit, status: :unprocessable_entity }

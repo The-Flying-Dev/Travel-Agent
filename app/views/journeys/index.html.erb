@@ -2,7 +2,7 @@
 
 <h1>Journeys</h1>
 <!--Search form-->
-<%= form_tag(journeys_path, method::get) do %>
+<%= form_tag(journeys_path, method: :get) do %>
   <%= text_field_tag :term, params[:term] %>
   <%= submit_tag "Search" %>
 <% end %> 

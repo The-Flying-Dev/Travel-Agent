@@ -25,7 +25,7 @@ class StationsController < ApplicationController
 
     respond_to do |format|
       if @station.save
-        format.html { redirect_to station_url(@station), notice: "Station was successfully created." }
+        format.html { redirect_to @station, notice: "Station was successfully created." }
         format.json { render :show, status: :created, location: @station }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class StationsController < ApplicationController
   def update
     respond_to do |format|
       if @station.update(station_params)
-        format.html { redirect_to station_url(@station), notice: "Station was successfully updated." }
+        format.html { redirect_to @station, notice: "Station was successfully updated." }
         format.json { render :show, status: :ok, location: @station }
       else
         format.html { render :edit, status: :unprocessable_entity }

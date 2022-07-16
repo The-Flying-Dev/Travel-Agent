@@ -29,7 +29,7 @@ class CabinsController < ApplicationController
 
     respond_to do |format|
       if @cabin.save
-        format.html { redirect_to cabin_url(@cabin), notice: "Cabin was successfully created." }
+        format.html { redirect_to @cabin, notice: "Cabin was successfully created." }
         format.json { render :show, status: :created, location: @cabin }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -42,7 +42,7 @@ class CabinsController < ApplicationController
   def update
     respond_to do |format|
       if @cabin.update(cabin_params)
-        format.html { redirect_to cabin_url(@cabin), notice: "Cabin was successfully updated." }
+        format.html { redirect_to @cabin, notice: "Cabin was successfully updated." }
         format.json { render :show, status: :ok, location: @cabin }
       else
         format.html { render :edit, status: :unprocessable_entity }

@@ -28,13 +28,8 @@ document.addEventListener('DOMContentLoaded',function(){
             data: <%= raw @cabins_available %>
         },
         {
-            name: 'Cabins Booking',
+            name: 'Cabins Booked',
             data: <%= raw @bookings %>
-        },
-
-        {
-            name: 'Journeys',
-            data: <%= raw @journey_names %>
         },]
     });
 });

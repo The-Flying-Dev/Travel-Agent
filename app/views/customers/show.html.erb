@@ -31,14 +31,15 @@
 
 <p>
   <b>Credit Cards</b>
+  <p><%= link_to 'Add a Credit Card', new_credit_card_path(:customer_id => @customer) %></p>
+  
   <% @customer.credit_cards.each do |cc| %>
     <%= cc.number %>
     <%= cc.name_on_card %>
     <%= cc.company %>
     <%=cc.exp_date %>
      <%= link_to 'Edit Credit Card Details', edit_credit_card_path(cc.id) %>
-  <% end %>
-  <%= link_to 'Add a Credit Card', new_credit_card_path(:customer_id => @customer) %>
+  <% end %>  
 </p>
 
 <%= link_to 'Edit', edit_customer_path(@customer) %> |

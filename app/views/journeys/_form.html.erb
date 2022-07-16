@@ -19,7 +19,7 @@
   <div class="field">
     <%= form.label :train_id %>
     <%#= form.text_field :train_id %>     
-    <%= form.collection_radio_buttons(:train_id, @trains,:id,:name ) %>
+    <%= form.collection_radio_buttons(:train_id, Train.all,:id,:name ) %>
   </div>
 
   <div class="actions">

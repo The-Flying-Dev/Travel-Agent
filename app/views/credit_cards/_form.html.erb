@@ -33,7 +33,8 @@
 
   <div class="field">
     <%= form.label :customer_id %>
-    <%= form.collection_select(:customer_id, @customers, :id, :last_name) %>
+    <%#= form.collection_select(:customer_id, @customers, :id, :last_name) %>
+    <%= form.text_field :customer_id %>
   </div>
 
   <div class="actions">
