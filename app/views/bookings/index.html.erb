@@ -5,8 +5,10 @@
 <table>
   <thead>
     <tr>
-      <th>Customer Surname</th>
-      <th>Journey</th>
+      <th>Surname &nbsp;</th>
+      <th>First Name &nbsp;</th>
+      <th>Journey &nbsp;</th>
+      <th>Trains Name</th>      
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,8 +16,10 @@
   <tbody>
     <% @bookings.each do |booking| %>
       <tr>
-        <td><%= booking.customer.last_name %></td>        
-        <td><%= booking.journey.name %></td>
+        <td><%= booking.customer.last_name %> &nbsp;</td> 
+        <td><%= booking.customer.first_name %> &nbsp;</td>       
+        <td><%= booking.journey.name %> &nbsp;</td>
+        <td><%= booking.journey.train.name %> &nbsp;</td>         
         <td><%= link_to 'Show', booking %></td>
         <td><%= link_to 'Edit', edit_booking_path(booking) %></td>
         <td><%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -12,4 +12,7 @@ import Highcharts from 'highcharts'
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
-window.Highcharts = Highcharts
+window.Highcharts = Highcharts// Support component names relative to this directory:
+var componentRequireContext = require.context("components", true);
+var ReactRailsUJS = require("react_ujs");
+ReactRailsUJS.useContext(componentRequireContext);

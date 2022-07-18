@@ -3,7 +3,7 @@ class BookingsController < ApplicationController
 
   # GET /bookings or /bookings.json
   def index
-    @bookings = Booking.all
+    @bookings = Booking.all    
   end
 
   # GET /bookings/1 or /bookings/1.json
@@ -14,14 +14,14 @@ class BookingsController < ApplicationController
   def new
     @booking = Booking.new
     @customers = Customer.all 
-    @journey = Journey.find(params[:journey_id])      
+    @journey = Journey.find(params[:journey_id])    
     @cabins = Cabin.where(["train_id = ?", @journey.train_id])
   end
 
   # GET /bookings/1/edit
   def edit
     @customers = Customer.all
-    @journey = Journey.find(params[:journey_id]) 
+    @journey = Journey.find(params[:journey_id])     
     @cabins = Cabin.where(["train_id = ?", @journey.train_id])
   end
 
