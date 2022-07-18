@@ -1,12 +1,15 @@
 import React from 'react'
+import {Routes, Route} from "react-router-dom";
+import Home from './Home';
+import Trains from './Trains';
 
 
-const App = () => {
-  return (
-    <div className="max-w-lg mx-auto mt-16 text-center max-w-sm rounded overflow-hidden shadow-lg p-10">
-      <h1 className="mb-4 text-3xl font-yellow">Hello There React App Component</h1>
-    </div>
-    
+function App()  {
+  return (    
+      <Routes>
+        <Route exact path="/" element={<Home />} />         
+        <Route exact path="/trains" element={<Trains />} />       
+      </Routes>     
   );
 }
 
