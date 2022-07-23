@@ -2,7 +2,7 @@
 <br />
 <hr />
 
-# Models/Tables
+# Models / Tables
 
 * addresses
 * bookings
@@ -19,7 +19,7 @@
 
 # Foreign-Keys
 
-   Table, Reference
+Table, Reference
 
 * "addresses", "customers"
 * "bookings", "customers"
