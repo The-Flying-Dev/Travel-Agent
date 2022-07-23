@@ -1,4 +1,4 @@
-# A booking app for a single business owner of a travel agency, built with minimal bootstrap
+# A booking app for a single business owner of a travel agency, built with Rails 6, HighCharts.js, minimal bootstrap, search capability on Journeys records and no authentication.
 <br />
 <hr />
 
