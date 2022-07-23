@@ -1,24 +1,46 @@
-# README
+# A booking app for a single business owner of a travel agency, built with minimal bootstrap
+<br />
+<hr />
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Models/Tables
 
-Things you may want to cover:
+* addresses
+* bookings
+* cabins
+* credit_cards
+* customers
+* journeys
+* payments
+* stations
+* trains
+* "Join-Table" - bookings_cabins
 
-* Ruby version
+<br />
 
-* System dependencies
+# Foreign-Keys
 
-* Configuration
+   Table, Reference
 
-* Database creation
+* "addresses", "customers"
+* "bookings", "customers"
+* "bookings", "journeys"
+* "cabins", "trains"
+* "credit_cards", "customers"
+* "journeys", "trains"
+* "payments", "bookings"
+* "payments", "credit_cards"
+* "payments", "customers"
 
-* Database initialization
+<br />
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Homepage
+![Screenshot](https://github.com/The-Flying-Dev/Travel-Agent/blob/main/app/assets/images/home.png) <br/>
+ 
+* Trains 
+![Screenshot](https://github.com/The-Flying-Dev/Travel-Agent/blob/main/app/assets/images/trains.png)
+ 
+* Journeys
+![Screenshot](https://github.com/The-Flying-Dev/Travel-Agent/blob/main/app/assets/images/journeys.png)
+ 
+* cabins
+![Screenshot](https://github.com/The-Flying-Dev/Travel-Agent/blob/main/app/assets/images/cabins.png)
