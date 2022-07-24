@@ -1,4 +1,8 @@
 # A booking app for a single business owner of a travel agency, built with Rails 6, HighCharts.js, minimal bootstrap, search capability on Journeys records and no authentication.
+
+## With HighCharts.js - Inspired by the U.S. based Amtrak company, a user/owner can C.R.U.D. details regarding, trains, stations, cabins,  customers details and bookings.
+
+## This app is database driven and no consideration was taken into account of privacy for customer/payment details or authentication and authorization.
 <br />
 <hr />
 
