@@ -3,7 +3,7 @@ class TrainsController < ApplicationController
 
   # GET /trains or /trains.json
   def index
-    @trains = Train.all
+    @trains = Train.all    
   end
 
   # GET /trains/1 or /trains/1.json
